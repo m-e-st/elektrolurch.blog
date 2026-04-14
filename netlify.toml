@@ -1,0 +1,13 @@
+# netlify.toml
+
+[[redirects]]
+  from = "https://42.elektrolurch.net/"
+  to = "https://blog.elektrolurch.net/memes/42/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://42.elektrolurch.net/*"
+  to = "https://blog.elektrolurch.net/memes/42/:splat"
+  status = 301
+  force = true
