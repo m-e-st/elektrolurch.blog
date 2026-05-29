@@ -7,7 +7,7 @@
             {{ post.date | readableDate(i18n.language) }}
           </time>
           <span> | </span>
-          <span>{{ post | readingTime }} {{ i18n.readingtime }}</span>
+          <span>{{ post.rawInput | readingTime }} {{ i18n.readingtime }}</span>
         </div>
 
         <div class="post-list__tags">
