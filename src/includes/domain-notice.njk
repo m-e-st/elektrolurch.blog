@@ -1,0 +1,42 @@
+<style>
+
+.domain-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: #fff3cd;
+  border-bottom: 2px solid #f0ad4e;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.domain-notice p {
+  margin: 0;
+  flex: 1;
+  text-align: center;
+}
+
+.domain-notice__close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  padding: 0;
+  line-height: 1;
+  color: inherit;
+  position: absolute;
+  right: 1rem;
+}
+}</style>
+
+<div class="domain-notice" id="domainNotice">
+  <p>⚠️ Die Adresse <a href="https://elektrolurch.pages.dev" style="color:red">elektrolurch.net</a> wird am 31.07.2026 abgeschaltet!
+  Die neue Adresse wird lauten: <a href="https://elektrolurch.pages.dev" style="color:blue">https://elektrolurch.pages.dev</a>
+  <button class="domain-notice__close" onclick="document.getElementById('domainNotice').remove()" aria-label="Dismiss">✕</button>
+</div>

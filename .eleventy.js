@@ -1,5 +1,5 @@
 const { DateTime } = require('luxon');
-const readingTime = require('eleventy-plugin-reading-time');
+// const readingTime = require('eleventy-plugin-reading-time');
 const pluginRss = require('@11ty/eleventy-plugin-rss');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const htmlmin = require('html-minifier-terser')
@@ -35,7 +35,7 @@ function obfuscateMail(mailAddress) {
 }
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(readingTime);
+//  eleventyConfig.addPlugin(readingTime);
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(syntaxHighlight);
 
@@ -77,6 +77,14 @@ module.exports = function (eleventyConfig) {
 		return DateTime.fromJSDate(dateObj, { zone: 'utc', locale:language }).toFormat('dd LLL yyyy');
 	});
 
+	// suggested by claude.ai for eleventy 3
+	eleventyConfig.addFilter("readingTime", (content) => {
+	  const text = content.replace(/<[^>]*>/g, ""); // strip HTML tags
+	  const words = text.trim().split(/\s+/).length;
+	  const minutes = Math.ceil(words / 200);
+	  return `${minutes} min read`;
+	});
+	
 	/*** kurzes Datumsformat ***/
 	eleventyConfig.addFilter('htmlDateString', (dateObj, language='en') => {
 		return DateTime.fromJSDate(dateObj, { zone: 'utc', locale:language }).toFormat('yyyy-LL-dd');
