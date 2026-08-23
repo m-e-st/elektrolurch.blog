@@ -1,4 +1,6 @@
 # netlify.toml
+# elektrolurch.net
+# 15.04.2026
 
 [[redirects]]
   from = "https://42.elektrolurch.net/"
